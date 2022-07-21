@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sleepyDay {
+            color: aqua
+        }
+
+        .moreSleepyDay {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div>今日も眠い</div> -->
+    <script>
+        const newDiv = document.createElement("div")
+        newDiv.textContent = "今日も眠い";
+        document.body.append(newDiv);
+
+        //id属性を追加する（setAttribute）
+        document.querySelector("div").setAttribute("id", "sleepy");
+
+        //class属性を追加する（setAttribute）
+        document.querySelector("div").setAttribute("class", "sleepyDay");
+
+        //clasListでclass属性を追加する(classList.add)
+        document.querySelector("div").classList.add("moreSleepyDay");
+
+        //clasListでclass属性を削除する(classList.remove)→削除する値を指定する
+        // document.querySelector("div").classList.remove("moreSleepyDay");
+
+        //class属性の値が２つ以上でも値を全て削除する
+        // document.querySelector("div").removeAttribute("class");
+
+        // P119
+        const whichCase = "case1";
+        switch (whichCase) {
+            case "case1":
+                console.log("case1 節を実行しました。");
+                break;
+            case "case2":
+                console.log("case2 節を実行しました。");
+                break;
+            default:
+                console.log("default 節を実行しました。")
+        }
+
+        // P130 while文。先にi++を書くか、OpenWithLiveServerを書き終えてから開く
+        let i = 0;
+        while (i < 5){
+            console.log(i);
+            i++;
+        }
+
+        // P133 for文。のときのみletを使う。
+        for(let j = 0;j < 5;j++){
+            console.log(j);
+        }
+
+        // P134 練習問題5.7
+        for(let k = 0;k < 10;k+=3){
+            console.log(k);
+        }
+
+        //P135 配列。要素の値は[]で囲む
+        const fruits = ["Apple","Melon","Orange"];
+        console.log(fruits[0]); //０番目の値を取得
+        console.log(fruits[1]); //１番目の値を取得
+        console.log(fruits[2]); //２番目の値を取得
+
+        fruits[0] = "Banana"; //０番目の値にBananaを代入
+        console.log(fruits[0]);
+
+        fruits[3] = "Grape";// 値の追加。
+        console.log(fruits[3]);
+
+        console.log(fruits.length);// 要素の個数を取得
+
+        //P135 配列を使ったfor文 numの値に加算
+        const num = [10,20,30];
+        for(let index = 0; index < num.length; index++){
+            // console.log(num)
+            num[index] = num[index]+ 10;
+            // console.log(num)
+        }
+        console.log(num);
+
+        //P64 オブジェクト(プロパティと値のペア)
+        let person = {
+            name: {first:"Taro",last:"Tanaka"},//プロパティの中にオブジェクトを作成
+            age: 18
+        }
+        console.log(person.age);//18
+        console.log(person.name.last);//Tanaka
+
+        person.name.first = "Jiro";//97行目のfirstの値に、Jiroを代入
+        person.gender = "Male";//新たなプロパティと値のペアを作成
+        person.familiy = {wife:"Hanako",child:"Saburo"};
+        
+        console.log(person.familiy.wife);//Hanako
+        console.log(person);//personオブジェクトの中身を全て出力
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //P136 練習問題5.8
+        const array = [10,20,23,47];
+
+        //合計値を覚えさせる変数を宣言
+        let sum = 0;
+        
+        //ｉはインデックス番号。配列の長さ分のループ
+        for(let i = 0; i < array.length; i++){
+            num = array[i]
+            //配列の中身を一つずつ取り出して、sumに加算
+             sum = sum + num;
+        }
+        console.log(sum);
+
+
+        //P141 for...of文(配列専用のfor文)。Javaでいう拡張for文
+        const fruits = ["Apple", "Banana","Orange"];
+        for(const value of fruits){//for(ローカル変数 of 配列変数名)
+            console.log(value + " Juice");
+        }
+
+
+        //P135 練習問題5.8 for...of文
+        sum = 0;//変数の初期化
+        for(const result of array){//arrayの値を前から取り出して、resultに入れる
+            console.log(result + "+" + sum);
+            sum = result + sum;
+            console.log("=" + sum);
+        }
+        console.log(sum);
+    </script>
+</body>
+</html>

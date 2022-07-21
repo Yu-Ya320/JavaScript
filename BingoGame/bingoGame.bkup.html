@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #borad {
+            display: grid;
+            grid-template-columns: 120px 120px 120px 120px 120px ;
+            border: 1px solid;
+            width: 600px;
+        }
+        .squares {
+            width: 118px;
+            height: 118px;
+            border: 1px solid;
+        } */
+        #borad {
+            margin: auto;
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            border: 1px solid;
+        }
+        .squares {
+            width: 118px;
+            height: 118px;
+            border: 1px solid;
+            font-size: 50px;
+            line-height: 118px;
+            text-align: center;
+        }
+        #bingo{
+            font-size: 100px;
+            width: 300px;
+            height: 150px;
+            margin: auto;
+            background-color: blanchedalmond;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="borad">
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+    </div>
+    <div id="bingo">Bingo</div>
+    <script>
+        const squaresArray = [];
+        const bingoRow = function(i,min,max){
+            const rand = Math.floor(Math.random()*(min - max) + max);
+            if(!squaresArray.includes(rand)){
+                squaresArray.push(rand)
+                document.querySelectorAll(".squares").item(i).textContent = rand;
+            }else{
+                bingoRow(i,min,max);
+            }
+            // document.querySelectorAll(".squares").item(i).textContent = rand;
+        }
+        console.log(squaresArray);
+
+        // const array = [];
+        // while(array.length<5){
+        //   const rand = Math.floor(Math.random()*15);
+        //   if(!array.includes(rand)){
+        //     array.push(rand)
+        //  }
+        // }
+        // console.log(array)
+
+        // const bingoRow2 = Math.floor(Math.random()*(16-30)+30);
+        // const bingoRow3 = Math.floor(Math.random()*(31-45)+45);
+        // const bingoRow4 = Math.floor(Math.random()*(46-60)+60);
+        // const bingoRow5 = Math.floor(Math.random()*(61-75)+75);
+        
+        console.log(bingoRow);
+        // for(i = 0; i < 5 ; i++){
+        // bingoRow1(i,Math.random()*15);
+        // }
+        // for(i = 5;i < 10;i++){
+        //     bingoRow1(i,Math.random()*(31-45)+45)
+        // }
+        
+        for(i = 0; i < 26; i++){
+            if(i < 5){
+                bingoRow(i,0,16);
+            }
+            else if(i < 6 || i < 10){
+                bingoRow(i,16,31)
+            }
+            else if(i < 11 || i < 15){
+                bingoRow(i,31,46)
+            }
+            else if(i < 16 || i < 20){
+                bingoRow(i,46,61)
+            }
+            else if(i < 21 || i < 25){
+                bingoRow(i,61,76)
+            }
+        }
+        const square12 = document.querySelectorAll(".squares").item(12) 
+        square12.textContent = "FREE"
+        square12.style.fontSize = "40px";
+        square12.style.backgroundColor = "gray"
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

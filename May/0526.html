@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .moji {
+            color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- ここに新しい要素を追加したい -->
+    <div id="test">
+        <p>テスト</p>
+    </div>
+    <script>
+        // <div></div>を作って、newDivという変数に入れる
+        const newDiv = document.createElement("div");
+
+        //textContentで文字を追加
+        newDiv.textContent = "Hello World";
+
+        //P433 prepend でnewDivの最初の子要素として追加
+        // document.getElementById("test").before(newDiv);
+
+        // removeで要素を削除
+        // document.getElementById("test").remove();
+
+        //HTMLのp要素に、class属性の値（moji）を設定
+        document.querySelector("p").setAttribute("class","moji");
+
+        //HTMLのp要素に、div属性の値(sample)を設定
+        document.querySelector("div").setAttribute("id","sample");
+    </script>
+</body>
+</html>

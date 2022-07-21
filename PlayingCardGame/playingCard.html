@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(34, 156, 116);
+        }
+
+        #board {
+            /* background-color: aquamarine; */
+            margin: 0 auto 0 auto;
+            width: 850px;
+            height: 850px;
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 10px;
+        }
+
+        .cards {
+            background-color: azure;
+            width: 80px;
+            height: 130px;
+            /* background-image: url("cards/card_back.png" ); */
+        }
+
+        img {
+            width: 80px;
+            height: 130px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //トランプを配置するための盤面を作成
+        // <div id = board> </div>
+        const boardDiv = document.createElement("div");
+        document.body.prepend(boardDiv);
+        boardDiv.setAttribute("id", "board");
+        // トランプの枚数分の枠を作成
+        // <div id = board> <div class = cards > </div> </div>
+        for (let i = 0; i < 52; i++) {
+            const cardsDiv = document.createElement("div");
+            document.querySelector("#board").prepend(cardsDiv);
+            cardsDiv.setAttribute("class", "cards");
+        }
+        // さらに52個のdivの中にimg要素を挿入
+        // <div id = board> <div class = cards > <img src = "cards/card_back.png"> </div> </div>
+        for (let i = 0; i < 52; i++) {
+            const backImg = document.createElement("img");
+            document.querySelectorAll(".cards").item(i).prepend(backImg);
+            backImg.setAttribute("src", "cards/card_back.png");
+            document.querySelectorAll("img").item(i).setAttribute("class", "images")
+        }
+
+
+        // 配置を表す配列
+        const cardsArray = [];
+        // 乱数を表す配列
+        const randomArray = [];
+        // 画面の状況を表す配列
+        const screenArray = Array[52]
+        // 関数の宣言 … １～52の重複しない乱数を生成し、randomArrayに挿入。
+        const board = function () {
+            const random = Math.floor(Math.random() * 52);
+            if (!randomArray.includes(random)) {
+                randomArray.push(random)
+            } else {
+                board();
+            }
+        }
+        console.log(randomArray);
+        let count = 0;
+        let a;
+        let b;
+        const clickAction = function (i) {
+            const imagesEl = document.querySelectorAll(".images").item(i)
+            const clickEvent = function () {
+                // clickArray = [];
+                const possition = cardsArray[randomArray[i]];
+                if (count % 4 === 0) {
+                    imagesEl.setAttribute("src", possition);
+                    // clickArray.push(randomArray[i])
+                    a = randomArray[i] % 13 + 1;
+                } else if (count % 4 === 1) {
+                    imagesEl.setAttribute("src", possition)
+                    // clickArray.push(randomArray[i])
+                    b = randomArray[i] % 13 + 1;
+                    console.log(a, b);
+                    if (randomArray[0] && randomArray[13]) {
+                        // document.querySelectorAll(".class").item(randomArray[0]).textContent = "much";
+                        // document.querySelectorAll(".class").item(randomArray[13]).textContent = "much";
+                        console.log("much")
+                    }
+                }
+                else if (count % 4 === 2) {
+                    imagesEl.setAttribute("src", "cards/card_back.png")
+                } else if (count % 4 === 3) {
+                    imagesEl.setAttribute("src", "cards/card_back.png")
+                }
+                count++;
+                // imagesEl.setAttribute("src",cardsArray[randomArray[i]])
+                console.log("possitionArray" + cardsArray[i])
+                console.log(possition);
+                // if(cardsArray[i]%13 === cardsArray[i]){
+                //     console.log("much")
+                // }
+            }
+            imagesEl.addEventListener("click", clickEvent)
+        }
+        // 関数の実行 … 配列の中に、乱数を52個つくる
+        for (let i = 0; i < 52; i++) {
+            cardsArray[i] = i;
+            board();
+            clickAction(i);
+            if (i < 9) {
+                cardsArray[i] = "cards/card_club_0" + (i + 1) + ".png";
+            } else if (i < 11 || i < 13) {
+                cardsArray[i] = "cards/card_club_" + (i + 1) + ".png";
+            } else if (i < 22) {
+                cardsArray[i] = "cards/card_diamond_0" + ((i + 1) - 13) + ".png";
+            } else if (i < 24 || i < 26) {
+                cardsArray[i] = "cards/card_diamond_" + ((i + 1) - 13) + ".png";
+            } else if (i < 35) {
+                cardsArray[i] = "cards/card_heart_0" + ((i + 1) - 26) + ".png";
+            } else if (i < 37 || i < 39) {
+                cardsArray[i] = "cards/card_heart_" + ((i + 1) - 26) + ".png";
+            } else if (i < 48) {
+                cardsArray[i] = "cards/card_spade_0" + ((i + 1) - 39) + ".png";
+            } else if (i < 50 || i < 52) {
+                cardsArray[i] = "cards/card_spade_" + ((i + 1) - 39) + ".png";
+            }
+        }
+        for (let i = 0; i < 52; i++) {
+            // console.log(cardsArray[randomArray[i]])
+        }
+        console.log(cardsArray)
+        // console.log("randomArray " + randomArray);
+        // console.log(cardsArray);
+        // console.log("cardsArray " + cardsArray)
+    </script>
+</body>
+
+</html>

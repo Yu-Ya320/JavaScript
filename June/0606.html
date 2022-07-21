@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //関数宣言文
+        //function キーワード
+        //sum 関数名、val1,val2 引数、return 戻り値
+        function sum(val1, val2){
+            return val1 + val2;
+        }
+        //関数実行文
+        let result = sum(10,20);
+        console.log(result);
+
+        //P159 関数式による関数定義
+        //letやconstを使い、関数式を入れる変数を定義
+        const minus = function(val1,val2){
+            return val1 - val2;
+        }
+        //関数式の実行、出力
+        let result2 = minus(10,5);
+        console.log(result2);
+
+        //P161 関数宣言。宣言前に実行可能
+        hello();
+        function hello(){
+            console.log("こんにちわ");
+        }
+
+        //P162 関数式。関数定義より前に実行不可
+        //Uncaught ReferenceError: hello is not defind →参照に関するエラー：helloは定義されていません
+        // greeting();
+        const greeting = function(){
+            console.log("はじめまして");
+        }
+        greeting();
+
+        //P175 無名関数の記法
+        //setTimeoutメソッド。3000ミリ(３)秒後にコールバック関数が動く
+        setTimeout(function(){console.log("こんにちは");},3000);
+    </script>
+</body>
+</html>

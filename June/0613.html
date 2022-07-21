@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        Click here
+    </div>
+
+    <div>
+        <button id="minus">-</button>
+        <span id="number">0</span>
+        <button id="plus">+</button>
+    </div>
+
+    <script>
+        // 繰り返し使う部分をまとめる。→ Elementの取得
+        const divA = document.getElementById("a");
+
+        // this.の使い方。functionを呼んだときの「．」以前の文を呼び出している。
+        divA.addEventListener("click",function(){
+            // thisは直前のものを示す。→document.getElementById("a")
+            // this.style.backgroundColor = "orange";
+            divA.style.backgroundColor = "orange";
+
+            setTimeout(function(){
+                console.log("over 2s");
+                // ここのthisは意図通り動かない。→thisはすぐ上のfunctionが呼ばれているものを示す
+                // this.style.backgroundColor = "red"
+                divA.style.backgroundColor = "yellow"
+                divA.textContent = "Changed the color"
+            },2000)
+        })
+        
+        // P458 イベントリスナの登録
+        // 数値を宣言して初期化
+        let count = 0;
+
+        // Elementの取得
+        // querySelector("#number")…Elementの取得方法。カッコ内は、CSSのセレクターと同じ表記
+        const number = document.querySelector("#number");
+        const plusBtn = document.querySelector("#plus");
+        const minusBtn = document.querySelector("#minus");
+        
+        plusBtn.addEventListener("click",function(event){
+            console.log(event);// eventオブジェクトの内容の確認→イベントが起きた時のキー入力の内容
+            count++;// 宣言した数値に１を加算
+            number.textContent = count;// #numberのテキストを更新
+        });
+        minusBtn.addEventListener("click",function(event){
+            count--;// 宣言した数値に１を減算
+            number.textContent = count;// #numberのテキストを更新
+        });
+
+    </script>
+</body>
+</html>

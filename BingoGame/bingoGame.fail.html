@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #borad {
+            display: grid;
+            grid-template-columns: 120px 120px 120px 120px 120px ;
+            border: 1px solid;
+            width: 600px;
+        }
+        .squares {
+            width: 118px;
+            height: 118px;
+            border: 1px solid;
+        } */
+        #borad {
+            margin: auto;
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            border: 1px solid;
+        }
+        .squares {
+            width: 118px;
+            height: 118px;
+            border: 1px solid;
+            font-size: 50px;
+            line-height: 118px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="borad">
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+        <div class="squares"></div>
+    </div>
+    <script>
+        const randomArray = [];
+        // const board = function(i,squareNum){
+        //     const rand = Math.floor(Math.random()*squareNum);
+        //     if(!randomArray.includes(rand)){
+        //         randomArray.push(rand)
+        //         // document.querySelectorAll(".squares").item(i).textContent = rand;
+        //         document.querySelectorAll(".squares").item(i).textContent = randomArray[i];
+        //     }else{
+        //         board(i, squareNum)
+        //     }
+        //     // document.querySelectorAll(".squares").item(i).textContent = randomArray[i];
+        //     // document.querySelectorAll(".squares").item(i).textContent = rand;
+        // }
+        // console.log(randomArray);
+
+        // const array = [];
+        // while(array.length<5){
+        //   const rand = Math.floor(Math.random()*15);
+        //   if(!array.includes(rand)){
+        //     array.push(rand)
+        //  }
+        // }
+        // console.log(array)
+        
+        // const board = function(i,randArea){
+        //     while(randomArray.length < 5){
+        //          const rand = Math.floor(Math.random()*randArea);
+        //          if(!randomArray.includes(rand)){
+        //           randomArray.push(rand)
+        //         //   document.querySelectorAll(".squares").item(i).textContent = rand;
+        //         //   document.querySelectorAll(".squares").item(i).textContent = randomArray[i];
+        //         }
+        //         // document.querySelectorAll(".squares").item(i).textContent = randomArray[i];
+        //         // document.querySelectorAll(".squares").item(i).textContent = rand;
+        //     }
+        // document.querySelectorAll(".squares").item(i).textContent = randomArray[i];
+        // }
+        // console.log(randomArray)
+
+        for(i = 0; i < 26; i++){
+            if(i < 5){
+                board(i, 16)
+            }else if(i < 6 || i < 10){
+                board(i, (16-30)+30)
+            }else if(i < 11 || i < 15){
+                board(i, (31-45)+45)
+            }else if (i < 16 || i < 20){
+                board(i, (46-60)+60)
+            }else if(i < 21 || i < 25){
+                board(i, (61-75)+75)
+            }
+        }
+        
+        
+
+        // const bingoRow2 = Math.floor(Math.random()*(16-30)+30);
+        // const bingoRow3 = Math.floor(Math.random()*(31-45)+45);
+        // const bingoRow4 = Math.floor(Math.random()*(46-60)+60);
+        // const bingoRow5 = Math.floor(Math.random()*(61-75)+75);
+        
+        // console.log(board);
+        // for(i = 0; i < 5 ; i++){
+        // bingoRow1(i,Math.random()*15);
+        // }
+        // for(i = 5;i < 10;i++){
+        //     bingoRow1(i,Math.random()*(31-45)+45)
+        // }
+        
+        // for(i = 0; i < 26; i++){
+        //     if(i < 5){
+        //         board(i,Math.random()*15);
+        //     }
+        //     else if(i < 6 || i < 10){
+        //         board(i,Math.random()*(16-31)+31)
+        //     }
+        //     else if(i < 11 || i < 15){
+        //         board(i,Math.random()*(32-46)+46)
+        //     }
+        //     else if(i < 16 || i < 20){
+        //         board(i,Math.random()*(47-61)+61)
+        //     }
+        //     else if(i < 21 || i < 25){
+        //         board(i,Math.random()*(62-76)+76)
+        //     }
+        // }
+        const square12 = document.querySelectorAll(".squares").item(12) 
+        square12.textContent = "FREE"
+        square12.style.fontSize = "40px";
+        square12.style.backgroundColor = "gray"
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

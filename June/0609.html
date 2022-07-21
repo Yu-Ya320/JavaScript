@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // P176 無名関数とアロー関数
+        // setTimeout(動かしたい関数、ミリ秒)
+        // 無名関数(functionのあとに関数の名前がない)
+        setTimeout( function() {
+            console.log("Hello");
+        },1000);
+
+        // アロー関数
+        setTimeout( () => console.log("Goodbye"), 2000);
+    </script>
+</body>
+</html>

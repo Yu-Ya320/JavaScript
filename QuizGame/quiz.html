@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<style>
+    #question {
+        background-color: aqua;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        text-align: center;
+    }
+    #answer div{
+        width: auto;
+        height: 100px;
+        background-color: rgb(197, 235, 253);
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 30px;
+        line-height: 100px;
+        
+    }
+    .correct {
+        background-color: aqua;
+    }
+   #limit {
+       text-align: right;
+   }
+</style>
+
+<body>
+    <div id="question">
+        <h2>アーサー王伝説に登場する湖の騎士の名前は？</h2>
+    </div>
+    <div id="answer">
+        <div id="answerA">
+            
+        </div>
+        <div id="answerB">
+            <div></div>
+        </div>
+        <div id="answerC">
+           
+        </div>
+        <div id="answerD">
+           
+        </div>
+    </div>
+    <footer>
+        <p id="limit">制限時間 ５秒</p>
+    </footer>
+    <script src="quiz.js"></script>
+    <!-- ブラウザはHTMLを上から順に実行するので、scriptタグの後ろにあるタグは操作できない。
+    なので、HTMLを操作するscriptタグはbodyタグの一番最後に書く -->
+</body>
+
+</html>
+
+<!-- クイズゲームを10ページ(個)つくるとき、htmlに文字をネタ書きは非効率 -->
+<!-- JavaScriptの配列に問題と選択肢を入れて、for文で取り出す -->
